@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş Sayfası</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    #lottie-container {
+      width: 70vh;
+      height: 35vh;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+    .btn {
+      background-color: #9237cb;
+      color: white;
+    }
+  </style>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-6">
+          <div id="lottie-container"></div>
+        </div>
+        <div class="col-6">
+          <form>
+            <h2>Giriş Yap</h2>
+            <div class="form-group">
+              <label for="username">Kullanıcı Adı</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Şifre</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="remember-me"
+              />
+              <label class="form-check-label" for="remember-me"
+                >Şifremi Hatırla</label
+              >
+            </div>
+            <button type="submit" class="btn mt-3">Giriş Yap</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
+    <script>
+      const animationContainer = document.getElementById("lottie-container");
+      const animation = lottie.loadAnimation({
+        container: animationContainer,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "sa.json",
+      });
+    </script>
+  </body>
+</html>

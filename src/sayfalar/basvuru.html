@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Başvuru Formu</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .form-group {
+        text-align: left;
+      }
+
+      .form-horizontal-center {
+        display: flex;
+        justify-content: center;
+      }
+      .btn {
+        color: white;
+        background-color: #9237cb;
+      }
+      .fas {
+        color: #9237cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row form-horizontal-center">
+        <div class="col-md-6">
+          <h2 class="text-center">Diyetisyen Başvuru Formu</h2>
+          <form id="basvuruForm">
+            <div class="form-group">
+              <i class="fas fa-user"></i>
+              <label for="ad">Adınız:</label>
+              <input type="text" class="form-control" id="ad" required />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-envelope"></i>
+              <label for="email">E-posta:</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-phone"></i>
+              <label for="telefon">Telefon:</label>
+              <input type="tel" class="form-control" id="telefon" required />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-calendar-alt"></i>
+              <label for="dogumTarihi">Doğum Tarihi:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="dogumTarihi"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-briefcase"></i>
+              <label for="unvan">Ünvan:</label>
+              <input type="text" class="form-control" id="unvan" required />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-venus-mars"></i>
+              <label>Cinsiyet:</label>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="erkek"
+                  name="cinsiyet"
+                  value="Erkek"
+                  required
+                />
+                <label class="form-check-label" for="erkek">Erkek</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="kadin"
+                  name="cinsiyet"
+                  value="Kadın"
+                  required
+                />
+                <label class="form-check-label" for="kadin">Kadın</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <label for="sifre">Şifre:</label>
+              <input type="password" class="form-control" id="sifre" required />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <label for="sifreTekrari">Şifre Tekrarı:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="sifreTekrari"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <i class="fas fa-file"></i>
+              <label for="ozgecmis">CV:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="ozgecmis"
+                accept=".pdf,.doc,.docx"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-block">Başvur</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#basvuruForm").submit(function (event) {
+          var sifre = $("#sifre").val();
+          var sifreTekrari = $("#sifreTekrari").val();
+
+          if (sifre !== sifreTekrari) {
+            alert("Şifreler eşleşmiyor!");
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Besin Kalori Araştırma</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <style>
+    body {
+      background-color: #ece6ff;
+    }
+    .btn {
+      background-color: #9237cb;
+      color: white;
+    }
+  </style>
+  <body>
+    <div class="container mt-5">
+      <h1>KALORİ CETVELİ</h1>
+      <p>Besin adını girin ve kalori değerini öğrenin:</p>
+
+      <div class="form-group">
+        <label for="besinAdi">Besin Adı:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="besinAdi"
+          placeholder="Besin adını girin"
+        />
+      </div>
+
+      <button type="button" class="btn" onclick="ara()">Öğren</button>
+
+      <div id="sonuc" class="mt-3"></div>
+    </div>
+
+    <script>
+      function ara() {
+        var besinAdi = document.getElementById("besinAdi").value;
+
+        var besinler = {
+          elma: 52,
+          muz: 89,
+          portakal: 43,
+          domates: 18,
+          havuç: 41,
+          brokoli: 55,
+          patates: 77,
+          somon: 206,
+          "tavuk göğsü": 165,
+          hamburger: 250,
+          pizza: 285,
+          spagetti: 220,
+          peynir: 402,
+          süt: 42,
+          yoğurt: 61,
+          fındık: 628,
+          badem: 579,
+          ceviz: 654,
+          "fıstık ezmesi": 188,
+          balık: 206,
+          sucuk: 268,
+          peynirburger: 303,
+          "ton balığı": 130,
+          zeytinyağı: 884,
+          pirinç: 130,
+          "mercimek çorbası": 165,
+          "kızarmış tavuk": 266,
+          "kuru fasulye": 143,
+          "sosisli sandviç": 250,
+          mısır: 86,
+          karpuz: 30,
+          şeftali: 39,
+          kivi: 61,
+          çilek: 32,
+          kiraz: 50,
+          kavun: 64,
+          "şam fıstığı": 160,
+          "kepekli ekmek": 65,
+          "beyaz ekmek": 265,
+          "sütlü çikolata": 546,
+          "bitter çikolata": 599,
+          "patates kızartması": 365,
+          "kızarmış tavuk kanadı": 43,
+          dondurma: 143,
+          "hazır çorba": 75,
+          soda: 41,
+          su: 0,
+        };
+
+        var kaloriDegeri = besinler[besinAdi.toLowerCase()];
+
+        if (kaloriDegeri !== undefined) {
+          var sonuc = `<p><strong>${besinAdi}</strong> besinin kalori değeri: ${kaloriDegeri} kcal</p>`;
+          document.getElementById("sonuc").innerHTML = sonuc;
+        } else {
+          var hataMesaji = "Besin bulunamadı veya bilinmiyor.";
+          document.getElementById("sonuc").innerHTML = hataMesaji;
+        }
+      }
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

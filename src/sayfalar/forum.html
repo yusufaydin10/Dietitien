@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soru-Cevap Forumu</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    #buton1 {
+      background-color: #9237cb;
+      color: white;
+    }
+    body {
+      background-color: #ece6ff;
+    }
+    .btn {
+      background-color: #ece6ff;
+      color: black;
+    }
+  </style>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4 text-center">Anonim olarak Soru-Cevap Forumu</h1>
+
+      <form id="questionForm">
+        <div class="mb-3">
+          <label for="questionText" class="form-label">Sorunuzu yazınız:</label>
+          <input type="text" class="form-control" id="questionText" required />
+        </div>
+        <button type="submit" class="btn" id="buton1">Sor</button>
+      </form>
+
+      <div id="questionList" class="mt-5"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      $("#questionForm").submit(function (event) {
+        event.preventDefault();
+
+        var questionText = $("#questionText").val();
+
+        var questionItem = `<div class="card mb-3" style="background-color: #9237cb">
+                                    <div class="card-body" style="color:white">
+                                        <h5 class="card-title">Soru:</h5>
+                                        <p class="card-text">${questionText}</p>
+                                        <button class="btn answer-button">Cevapla</button>
+                                        <div class="answer-form mt-3" style="display: none;">
+                                          <label for="answerText" class="form-label">Cevabınızı yazınız:</label>
+                                          <input type="text" class="form-control" id="answerText" />
+                                          <button class="btn submit-answer mt-2">Gönder</button>
+                                        </div>
+                                        <div class="answer mt-3" style="display: none;">
+                                          <h5 class="card-title">Cevap:</h5>
+                                          <p class="card-text answer-text"></p>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+        $("#questionList").append(questionItem);
+
+        $("#questionForm")[0].reset();
+      });
+
+      $(document).on("click", ".answer-button", function () {
+        $(this).siblings(".answer-form").show();
+      });
+
+      $(document).on("click", ".submit-answer", function () {
+        var answerText = $(this).siblings("input").val();
+        $(this).closest(".card-body").find(".answer-text").text(answerText);
+        $(this).closest(".card-body").find(".answer").show();
+        $(this).siblings("input").val("");
+        $(this).closest(".answer-form").hide();
+      });
+    </script>
+  </body>
+</html>
